@@ -1,5 +1,5 @@
 <!-- build file for /coupongen/coupongen.swf project -->
-<project name="coupongen" default="compile">
+<project name="coupongen" default="test">
 
 	<property name="source" value="."/>
 	<property name="BUILD_FILE_NAME" value="coupongen"/>
@@ -16,7 +16,7 @@
 
 
 
-	<target name="test">
+	<target name="compile">
 		<mkdir dir="${source}/bin"/>
 	
 		<mxmlc file="${source}/src/${BUILD_FILE_NAME}.mxml" keep-generated-actionscript="false" output="${source}/bin/${BUILD_FILE_NAME}.swf">
@@ -46,6 +46,6 @@
 
 	</target>
 	
-
+	<target name="test" depends="compile" />
 
 </project>

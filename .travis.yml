@@ -1,11 +1,12 @@
 dist: trusty
 sudo: false
 language: java
-env:
-  - PLAYERGLOBAL_HOME=.
+
+ 
 before_install:
   - wget http://apache.mirror.anlx.net/flex/4.16.1/binaries/apache-flex-sdk-4.16.1-bin.tar.gz
   - tar -zxvf apache-flex-sdk-4.16.1-bin.tar.gz
   - wget https://fpdownload.macromedia.com/get/flashplayer/updaters/29/playerglobal29_0.swc
   - mkdir 27.0 && mv playerglobal29_0.swc 27.0/playerglobal.swc
+  - export PLAYERGLOBAL_HOME=${PWD}
 
