@@ -14,9 +14,9 @@
 	<typedef resource="flexTasks.tasks" classpathref="flextasks.classpath" />
 
 
-	
 
-	<target name="compile">
+
+	<target name="test">
 		<mkdir dir="${source}/bin"/>
 	
 		<mxmlc file="${source}/src/${BUILD_FILE_NAME}.mxml" keep-generated-actionscript="false" output="${source}/bin/${BUILD_FILE_NAME}.swf">
