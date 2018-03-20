@@ -1,0 +1,51 @@
+<!-- build file for /coupongen/coupongen.swf project -->
+<project name="coupongen" default="compile">
+
+	<property name="source" value="."/>
+	<property name="BUILD_FILE_NAME" value="coupongen"/>
+
+	<property name="FLEX_HOME" location="apache-flex-sdk-4.16.1-bin" description="Required by flex ant tasks" />
+	<path id="flextasks.classpath">
+		<fileset dir="${FLEX_HOME}/ant/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>  
+
+	<typedef resource="flexTasks.tasks" classpathref="flextasks.classpath" />
+
+
+	
+
+	<target name="compile">
+		<mkdir dir="${source}/bin"/>
+	
+		<mxmlc file="${source}/src/${BUILD_FILE_NAME}.mxml" keep-generated-actionscript="false" output="${source}/bin/${BUILD_FILE_NAME}.swf">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+			<source-path path-element="${FLEX_HOME}/frameworks"/>
+			<compiler.library-path dir="${FLEX_HOME}/frameworks" append="true">
+				<include name="libs" />
+				<include name="../bundles/{locale}" />
+			</compiler.library-path>
+			<compiler.library-path dir="${source}" append="true">
+				<include name="lib" />
+			</compiler.library-path>
+		</mxmlc>
+
+
+
+<!-- 				<html-wrapper 
+              title="Pine Cove Registration - Cabin Manager"
+              application="${DEPLOY_FILE_NAME}"
+              swf="${DEPLOY_FILE_NAME}"
+              version-major="9"
+              version-minor="0"
+              version-revision="0"
+              history="true"
+              template="express-installation"
+              output="${source}/bin"/> -->
+
+	</target>
+	
+
+
+</project>
